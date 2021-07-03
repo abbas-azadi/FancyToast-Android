@@ -29,7 +29,7 @@ public class FancyToast extends Toast {
         super(context);
     }
 
-    public static Toast makeText(Context context, CharSequence message, int duration, int type, boolean androidIcon) {
+    public static Toast makeText(Context context, CharSequence message, int duration, int type, boolean androidIcon, int topImage) {
         Toast toast = new Toast(context);
         toast.setDuration(duration);
         View layout = LayoutInflater.from(context).inflate(R.layout.fancytoast_layout, null, false);
@@ -38,6 +38,9 @@ public class FancyToast extends Toast {
         ImageView img = layout.findViewById(R.id.toast_icon);
         ImageView img1 = layout.findViewById(R.id.imageView4);
         l1.setText(message);
+        if (topImage>0) {
+            img1.setImageResource(topImage);
+        }
         if (androidIcon)
             img1.setVisibility(View.VISIBLE);
         else img1.setVisibility(View.GONE);
@@ -74,7 +77,7 @@ public class FancyToast extends Toast {
 
 
 
-    public static Toast makeText(Context context, CharSequence message, int duration, int type, int ImageResource, boolean androidIcon) {
+    public static Toast makeText(Context context, CharSequence message, int duration, int type, int ImageResource, boolean androidIcon, int topImage) {
         Toast toast = new Toast(context);
         toast.setDuration(duration);
         View layout = LayoutInflater.from(context).inflate(R.layout.fancytoast_layout, null, false);
@@ -83,6 +86,9 @@ public class FancyToast extends Toast {
         ImageView img = layout.findViewById(R.id.toast_icon);
         ImageView img1 = layout.findViewById(R.id.imageView4);
         l1.setText(message);
+        if (topImage>0) {
+            img1.setImageResource(topImage);
+        }
         img.setImageResource(ImageResource);
         if (androidIcon)
             img1.setVisibility(View.VISIBLE);
